@@ -1,29 +1,28 @@
 import { Card, Col, Row } from 'antd';
+import dayjs from 'dayjs'
 import { useEffect, useState } from 'react'
 import { Steps } from 'antd';
 import CreateGroupFinish from '../../../component/channel/CreateGroupFinish';
 import CreateGroupInfo from '../../../component/channel/CreateGroupInfo';
 import SelectProducts from '../../../component/channel/SelectProducts';
 const baseGroupInfo = {
-  order: "2",
-  state: '2',
-  name: "大王来了",
-  products: "12,13,14",
-  startTime:"2023-02-08T14:31:26.000Z",
-  endTime: new Date() + "",
-  current: 1,
-  shop: '店铺',
-  slogan:"比周五偏移一半",
-  preTime: "2023-02-08T14:31:26.000Z",
-  showHome: '1',
-  tag: '4',
-  target: '1',
-  banner: '',
-  homePic: '', 
-  limitBuy: 1111,
-  deliverWay: '1',
-  pickTime: "2023-02-07T14:30:27.000Z",
-  showType:"1",
+  "name": "测试团购活动",
+  "startTime": dayjs().format("YYYY-MM-DD HH:mm:ss"),
+  "endTime": dayjs().format("YYYY-MM-DD HH:mm:ss"),
+  "slogan": '测试口号',
+  "showHome": "1",
+  "homePic": 'https://m15.360buyimg.com/mobilecms/jfs/t1/90537/28/34381/94784/63ead64aFabb4d1b8/154e0b4180874a0e.jpg!cr_1125x449_0_166!q70.jpg',
+  "banner": 'https://m15.360buyimg.com/mobilecms/jfs/t1/90537/28/34381/94784/63ead64aFabb4d1b8/154e0b4180874a0e.jpg!cr_1125x449_0_166!q70.jpg',
+  "showType": 1,
+  "target": 1,
+  "limitBuy": 999,
+  "shop": '829,824',
+  "deliverWay": 1,
+  "pickTime": dayjs(new Date(Date.now() + 1000 * 60 * 60 * 24) + "").format("YYYY-MM-DD HH:mm:ss"),
+  "products": "586,587,588",
+  "preTime": dayjs(new Date(Date.now() - 1000 * 60 * 60 * 24) + "").format("YYYY-MM-DD HH:mm:ss"),
+  "tag": 1,
+  "state": 1
 }
 
 const CreateGroupBuy = () => {
@@ -39,7 +38,7 @@ const CreateGroupBuy = () => {
     },
     {
       title: '添加活动商品',
-      content: <SelectProducts />,
+      content: <SelectProducts setCurrent={setCurrent} groupInfo={groupInfo} setGroupInfo={setGroupInfo} />,
     },
     {
       title: '创建完成',

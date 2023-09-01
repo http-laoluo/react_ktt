@@ -1,55 +1,83 @@
 // purchase 接口类型
 export interface GroupBuyType {
-    order?:string
-    state?:string
-    id?:number | string
+    size?:number | string
+    id?:number|string
     name?:string
-    products?:string
     startTime?:string
     endTime?:string
+    state?:number|string
     current?:number
+    order?:string
+    products?:string
     shop?:string
-    pageSize?:string|number
     slogan?:string
     preTime?:string
-    showHome?:number|string
-    tag?:string
-    target?:number|string
+    showHome?:string
+    tag?:string|number
+    target?:number
     limitBuy?:number
-    deliverWay?:number|string
+    deliverWay?:number
     pickTime?:string
-    size?:string|number
     homePic?:string
     banner?:string
-    showType?:string|number
-}
+    showType?:number
+  }
 
+/* purchase 接口类型 */
+// 定义商品类型
+export interface ProductType {
+    id?: number | string
+    gallery?: string
+    productName?: string
+    price?: string
+    specs?: string
+    current?: number
+    size?: number
+}
+// 定义团购商品类型
+export type GroupProType = ProductType & {
+    groupBuyId?: number | string
+    salePrice?: string
+    limitBuy?: number
+    rate?: number
+    stock?: number
+    order?: number
+}
+// 标签类型
+export interface TagType {
+    id?: number | string
+    name?: string
+    pic?: string
+    type?: number
+    current?: number
+    size?: number
+}
 // api 类型
 export interface resType {
-    code:number
-    msg?:string
-    token:string
-    user:any
+    code: number
+    msg?: string
+    token: string
+    user: any
 }
 
 export interface UserType {
-   name:string
-   password:string
+    name: string
+    password: string
 }
 
 export interface ActionType {
-    type:string
-    payload?:any
+    type: string
+    payload?: any
 }
 export interface LoginresponseType {
-    code:number
-    token:string
-    user:any
-    msg?:string
+    code: number
+    token: string
+    user: any
+    msg?: string
 }
 
 export interface TagType {
-    id?:number|string
-    name?:string
-    pic?:string
+    id?: number | string
+    name?: string
+    pic?: string
 }

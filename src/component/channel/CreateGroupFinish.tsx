@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react'
+import { SmileOutlined } from '@ant-design/icons';
+import { Button, Result } from 'antd';
 const CreateGroupFinish = ()=>{
     let [data, setData] = useState(''); 
     useEffect(()=>{
@@ -6,7 +8,11 @@ const CreateGroupFinish = ()=>{
     },[])
     return (
       <div className='index'>
-CreateGroupFinish
+           <Result
+            icon={<SmileOutlined />}
+            title="创建成功"
+            extra={<></>}
+          />
       </div>
     )
 }
